@@ -1,82 +1,67 @@
 <!DOCTYPE html>
 <html>
-<title>Barcode Generator</title>>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-    body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
-.w3-row-padding img {margin-bottom: 12px}
-.w3-sidebar {width: 120px;background: #222;}
-#main {margin-left: 120px}
-@media only screen and (max-width: 600px) {#main {margin-left: 0}}
-</style>
-
-<body class="w3-black">
-
-    <!-- Icon Bar (Sidebar - hidden on small screens) -->
-    <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
-        <!-- <img src="/w3images/avatar_smoke.jpg" style="width:100%"> -->
-        <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
-            <i class="fa fa-home w3-xxlarge"></i>
-            <p>HOME</p>
-        </a>
-        <a href="#qr" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-            <i class="fa fa-user w3-xxlarge"></i>
-            <p>ABOUT</p>
-        </a>
-    </nav>
-
-    <!-- Navbar on small screens (Hidden on medium and large screens) -->
-    <div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
-        <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
-            <a href="#" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
-        </div>
-    </div>
-
-    <div class="w3-padding-large" id="main">
-        <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
-            <h1 class="w3-jumbo"><span class="w3-hide-small">Barcode</span> Machine.</h1>
-            <p>Only supporting QR Codes.</p>
-            <!-- <img src="/w3images/man_smoke.jpg" alt="boy" class="w3-image" width="992" height="1108"> -->
-        </header>
-
-        <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="qr">
-            <h2 class="w3-text-light-grey">QR Code</h2>
-            <hr style="width:200px" class="w3-opacity">
-            <div class="w3-half w3-margin-bottom">
-                <p>
-                    <input type="text" id="msg" autofocus placeholder="dotfig.github.io/webfig/">
-                    <input type="button" id="button" value="Generate">
-                </p>
+    <title>Barcode Generator</title>>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body, h1,h2,h3,h4,h5,h6 {font-family: "Montserrat", sans-serif}
+        .w3-row-padding img {margin-bottom: 12px}
+        .w3-sidebar {width: 120px;background: #222;}
+        #main {margin-left: 120px}
+        @media only screen and (max-width: 600px) {#main {margin-left: 0}}
+    </style>
+    <body class="w3-black">
+        <nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
+            <img src="barcodereader.jpg" style="width:50%">
+            <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
+                <i class="fa fa-home w3-xxlarge"></i>
+                <p>HOME</p>
+            </a>
+            <a href="#qr" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
+                <i class="fa fa-user w3-xxlarge"></i>
+                <p>ABOUT</p>
+            </a>
+        </nav>
+        <div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
+            <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
+                <a href="#" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
             </div>
-            <div class="w3-half">
-                <div id="barCode"></div>
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-                <script>
-                    $(function () {
-                        $('#button').click(function () {
-                            var msg = encodeURIComponent($('#msg').val());
-                            var img = $('<img>').attr('src', 'https://chart.googleapis.com/chart?cht=qr&chs=150x150&choe=Shift_JIS&chl=' + msg);
-                            $('#barCode').html(img);
+        </div>
+        <div class="w3-padding-large" id="main">
+            <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
+                <h1 class="w3-jumbo"><span class="w3-hide-small">Barcode</span> Machine.</h1>
+                <p>Only supporting QR Codes.</p>
+                <!-- <img src="/w3images/man_smoke.jpg" alt="boy" class="w3-image" width="992" height="1108"> -->
+            </header>
+            <div class="w3-content w3-justify w3-text-grey w3-padding-64" id="qr">
+                <h2 class="w3-text-light-grey">QR Code</h2>
+                <hr style="width:200px" class="w3-opacity">
+                <div class="w3-half w3-margin-bottom">
+                    <p>
+                        <input type="text" id="msg" autofocus placeholder="dotfig.github.io/webfig/">
+                        <input type="button" id="button" value="Generate">
+                    </p>
+                </div>
+                <div class="w3-half">
+                    <div id="barCode"></div>
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                    <script>
+                        $(function () {
+                            $('#button').click(function () {
+                                var msg = encodeURIComponent($('#msg').val());
+                                var img = $('<img>').attr('src', 'https://chart.googleapis.com/chart?cht=qr&chs=150x150&choe=Shift_JIS&chl=' + msg);
+                                $('#barCode').html(img);
+                            });
                         });
-                    });
-                </script>
+                    </script>
+                </div>
             </div>
+            <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
+                <p class="w3-medium">&lt;&gt; with &hearts; by <a href="https://dotfig.github.io/webfig">dotfig</a></p>
+            </footer>
         </div>
-        <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
-            <i class="fa fa-facebook-official w3-hover-opacity"></i>
-            <i class="fa fa-instagram w3-hover-opacity"></i>
-            <i class="fa fa-snapchat w3-hover-opacity"></i>
-            <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-            <i class="fa fa-twitter w3-hover-opacity"></i>
-            <i class="fa fa-linkedin w3-hover-opacity"></i>
-            <p class="w3-medium">Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">w3.css</a></p>
-        </footer>
-    </div>
-
-</body>
-
+    </body>
 </html>
